@@ -26,6 +26,7 @@ public class Main {
 
             // Выводим итог
             System.out.println("Каждый должен заплатить по: " + part1 + "." + part2 + " " + pravilno);
+
         }
     }
 }

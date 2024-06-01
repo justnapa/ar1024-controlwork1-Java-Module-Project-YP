@@ -64,7 +64,7 @@ public class Calculator {
 
             }
             // определим окончание для "рубль"
-            dolg = fullPrice / menCount;
+            dolg = fullPrice /(double)menCount;
 
 //         String shablon = "Каждый должен заплатить по: %.2f "+pravilno;
 //            System.out.println(String.format(shablon, dolg));
