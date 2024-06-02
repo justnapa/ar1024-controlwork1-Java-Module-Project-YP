@@ -28,25 +28,27 @@ public class Calculator {
                 bludo.name = vvodStr;
                 //    System.out.println("принято. товар введен ");
                 System.out.println("Введите цену [руб].[коп]:");
-
+                price=0;
                 while (true) {
                     try {
                         vvodStr = scanner.nextLine();
                         price = Double.parseDouble(vvodStr);
-                        break;
-                    } catch (NumberFormatException e) {
-                        System.out.println("неверный ввод, повторите ");
-                    }
-                }
-                // System.out.println("неправильный ввод, повторите ");
+                        if (price > 0) {
+                            bludo.price = price;
+                            fullPrice = fullPrice + price;
+                            System.out.println("Товар '"+bludo.name+"' успешно добавлен на сумму: " + fullPrice + " руб.");
+                            enteredPrice = true;break;
+                        }
+                        else System.out.println("введите цену больше 0 ");
 
-                if (price > 0) {
-                    bludo.price = price;
-                    fullPrice = fullPrice + price;
-                    System.out.println("сумма введенных товаров: " + fullPrice + " руб.");
-                    enteredPrice = true;
-                } else System.out.println("введите цену больше 0 ");
+                    } catch (NumberFormatException e) {
+                       System.out.println("неверный ввод, повторите ");
+                    }
+                 // System.out.println("неправильный ввод, повторите ");
+                  //  System.out.print(price);System.out.println("");
+
 // добавление товара в список
+                }
                 feedList.add(bludo);
 
             } else vvod = false;
