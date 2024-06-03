@@ -10,54 +10,45 @@ public class Calculator {
         double dolg = 0; // итог калькулятора
         // ВВод числа плательщиков
         int menCount = skolkoNaroduPlatit();
-        //System.out.println("принято. Число оплачивающих: " + menCount);
         int i = 0;
         Scanner scanner = new Scanner(System.in);
         boolean vvod = true;
-
         double fullPrice = 0;
         while (vvod) {
             Bludo bludo = new Bludo();
             i++;
             System.out.println("Введите название товара № " + i + " или введите 'Завершить': ");
-            String vvodStr = scanner.nextLine();
-            vvodStr.trim();
+            String vvodStr = scanner.nextLine().trim();
             double price = 0;
-            boolean enteredPrice = false;
-            if (!vvodStr.toLowerCase().equals("завершить")) {
+            if (!vvodStr.equalsIgnoreCase("завершить")) {
                 bludo.name = vvodStr;
-                //    System.out.println("принято. товар введен ");
-                System.out.println("Введите цену [руб].[коп]:");
+
                 price=0;
                 while (true) {
                     try {
+                        System.out.println("Введите цену [руб].[коп]:");
                         vvodStr = scanner.nextLine();
                         price = Double.parseDouble(vvodStr);
                         if (price > 0) {
                             bludo.price = price;
                             fullPrice = fullPrice + price;
                             System.out.println("Товар '"+bludo.name+"' успешно добавлен на сумму: " + fullPrice + " руб.");
-                            enteredPrice = true;break;
+                            ;break;
                         }
                         else System.out.println("введите цену больше 0 ");
 
                     } catch (NumberFormatException e) {
                        System.out.println("неверный ввод, повторите ");
                     }
-                 // System.out.println("неправильный ввод, повторите ");
-                  //  System.out.print(price);System.out.println("");
 
 // добавление товара в список
                 }
                 feedList.add(bludo);
 
             } else vvod = false;
-
-
-        }
+       }
+        // Итоговый подсчет
         int tovarov = feedList.size();
-
-        // Итог. Выводим список
         if (fullPrice > 0) {
 
             System.out.println(String.format("Итого: %.2f", fullPrice));
@@ -65,11 +56,9 @@ public class Calculator {
                 System.out.println("Добавленные товары: " + feedList.get(t).name);
 
             }
-            // определим окончание для "рубль"
+
             dolg = fullPrice /(double)menCount;
 
-//         String shablon = "Каждый должен заплатить по: %.2f "+pravilno;
-//            System.out.println(String.format(shablon, dolg));
         }
         return dolg;
     }
