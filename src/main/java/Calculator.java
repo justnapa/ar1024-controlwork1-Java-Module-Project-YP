@@ -2,8 +2,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Calculator {
-
-
     public double start() {
         ArrayList<Bludo> feedList = new ArrayList<>();
         System.out.println("Привет!");
