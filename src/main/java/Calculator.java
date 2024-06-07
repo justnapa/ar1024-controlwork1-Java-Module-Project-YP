@@ -17,8 +17,11 @@ public class Calculator {
         while (vvod) {
             Bludo bludo = new Bludo();
             i++;
-            System.out.println("Введите название товара № " + i + " или введите 'Завершить': ");
-            String vvodStr = scanner.nextLine().trim();
+            String vvodStr="";
+            do {
+                System.out.println("Введите название товара № " + i + " или введите 'Завершить': ");
+                 vvodStr= scanner.nextLine().trim();
+            } while (vvodStr.equals(""));
             double price = 0;
             if (!vvodStr.equalsIgnoreCase("завершить")) {
                 bludo.name = vvodStr;
@@ -68,12 +71,12 @@ public class Calculator {
         int men = 0;
         while (notOk) {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Сколько человек расплачиваются(2-9)?");
+            System.out.println("Сколько человек расплачиваются(не менее 2)?");
             String strMen = scanner.nextLine();
 
             try {
                 men = Integer.parseInt(strMen.trim());
-                if ((men > 1) && (men < 10)) {
+                if (men > 1) {
 
                     notOk = false;
                 } else System.out.println("неверное число " + men);
