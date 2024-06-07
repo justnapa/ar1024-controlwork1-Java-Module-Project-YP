@@ -17,9 +17,12 @@ public class Main {
         //идем на извращения, дабы поменять точку на запятую.
         // функция replace не работает и т.п. тоже не работают
         if (PoSkolkoPlatit>0) {
-            //System.out.println("итог: " + PoSkolkoPlatit);
+
+
             DecimalFormat myFloatFormatter = new DecimalFormat("#.##");
             String dolgStr = myFloatFormatter.format(PoSkolkoPlatit);
+            if (PoSkolkoPlatit-(int)PoSkolkoPlatit==0)
+                {dolgStr=dolgStr+",00";}
             int zap = dolgStr.indexOf(",");
             String part1 = dolgStr.substring(0, zap);
             String part2 = dolgStr.substring(zap + 1, dolgStr.length());
